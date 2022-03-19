@@ -1,0 +1,18 @@
+browser:
+  profile: BROWSER_CHROME_PROFILE_PATH
+  #Timeout in ms
+  defaultTimeout: DEFAULT_TIMEOUT
+
+  #Browser window dimanesions
+  width: BROWSER_WIDTH
+  height: BROWSER_HEIGHT
+
+  #Toggles: 0 to disable, 1 to enable
+  evidencesEnabled: BROWSER_EVIDENCES_ENABLED
+
+metamask:
+  password: METAMASK_NEW_PASSWORD
+  seedFilePath: METAMASK_SEED_FILE_PATH
+  outputFileDir: METAMASK_BOT_OUTPUT_FILE_DIR
+  walletsFilePrefix: METAMASK_BOT_OUTPUT_WALLETS_FILE_PREFIX
+  scrapeWalletEnabled: METAMASK_BOT_SCRAPE_WALLET_ENABLED

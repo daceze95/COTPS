@@ -1,0 +1,25 @@
+browser:
+  extensions:
+    - metamask.crx
+  profile:
+  #Timeout in ms
+  defaultTimeout: 5000
+
+  #Browser window dimanesions
+  width: 1920
+  height: 1200
+
+  # retry on failure count 
+  utilRetries: 3
+  routineRetries: 3
+  processRetries: 3
+
+  #Toggles: 0 to disable, 1 to enable
+  evidencesEnabled: 0
+
+metamask:
+  password: 12345678
+  seedFilePath: data/seed.txt
+  outputFileDir: output
+  walletsFilePrefix: wallets
+  scrapeWalletEnabled: 0
