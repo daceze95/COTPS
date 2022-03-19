@@ -40,6 +40,7 @@ const scrapeWalletData = async (browser, { routine = 'scrapeWalletData', page = 
         const etheriumBalance = await browser.findElement('css', walletlocators.etheriumBalance)
         const etheriumBalanceAmount = await etheriumBalance.getText()
 
+        /* 
         const copyAccountAddressToClipBoardBtn = await browser.findElement('css', walletlocators.copyAccountAddressToClipBoardBtn)
         await browser.click(copyAccountAddressToClipBoardBtn)
 
@@ -57,6 +58,7 @@ const scrapeWalletData = async (browser, { routine = 'scrapeWalletData', page = 
 
         const closeSendForm = await browser.findElement('css', walletlocators.closeSendForm)
         await browser.click(closeSendForm)
+        */
 
         const myAccountBtn = await browser.findElement('css', walletlocators.myAccountBtn)
         await browser.click(myAccountBtn)
@@ -69,7 +71,7 @@ const scrapeWalletData = async (browser, { routine = 'scrapeWalletData', page = 
 
         await browser.waitUntilUrlIs(walletRedirectUrls.restoreWallet)
 
-        return { walletAddress, etheriumBalanceAmount }
+        return { /* walletAddress, */ etheriumBalanceAmount }
     } catch (err) {
         log.debug(`routine: ${routine} failed. Error: ${err}\n`)
         await browser.takeEvidence({ page, routine })
@@ -148,8 +150,8 @@ const validateSecurityPhrase = async (browser, { routine = 'verifySecurityPhrase
             appendV = true;
 
             if (scrapeWalletEnabled && parseInt(scrapeWalletEnabled)) {
-                const { walletAddress = '', etheriumBalanceAmount = '' } = await scrapeWalletData(browser);
-                appendFileSync(walletsFilepath, `${walletAddress},${etheriumBalanceAmount}\n`)
+                const { etheriumBalanceAmount = '' } = await scrapeWalletData(browser);
+                appendFileSync(walletsFilepath, `${phrase},${etheriumBalanceAmount}\n`)
             }
 
         }
@@ -168,7 +170,7 @@ const validateSecurityPhrase = async (browser, { routine = 'verifySecurityPhrase
     }
 }
 
-const verifySecurityPhrases = async (browser, { routine = 'verifySecurityPhrases', page = 'metamask.phrase.verification', seeds, retry = routineRetries } = {}) => {
+const verifySecurityPhrases = async (browser, { routine = 'verifySecurityPhrases', page = 'metamask.phrase.verification' } = {}) => {
     const dir = resolve(__dirname, `../${outputFileDir}`)
     const walletsFilepath = resolve(dir, `${walletsFilePrefix}_${moment().format('YYYY-MM-DD_HH_mm_ss')}.csv`)
     const seedFileNormalizedName = seedFilePath.replace(/[^\w\s\-]/gi, '_')
@@ -184,7 +186,7 @@ const verifySecurityPhrases = async (browser, { routine = 'verifySecurityPhrases
         await browser.waitUntilPageIsLoaded()
 
         if (scrapeWalletEnabled && parseInt(scrapeWalletEnabled)) {
-            writeFileSync(walletsFilepath, 'Address,ETH' + '\n')
+            writeFileSync(walletsFilepath, 'SEED,ETH' + '\n')
         }
 
         let appendV, appendIv
