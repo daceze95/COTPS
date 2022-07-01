@@ -1,10 +1,11 @@
-# metamask-automata
-Metamask Chrome Extension Automation Bot Powered by Selenium WebDriver &amp; Node.js
+# COTPS-automata
+COTPS Chrome Extension Automation Bot Powered by Selenium WebDriver &amp; Node.js
 
 ## Installation
 - OS: Windows, Linux, and macOS
-- Pre-requisites: Google Chrome, node.js
-- Clone and checkout to `main` branch from https://github.com/ahsan-babar/metamask-automata
+- Pre-requisites: Google Chrome, node.js v14.17.5 https://nodejs.org/dist/v14.17.5/node-v14.17.5-x64.msi
+
+- Clone and checkout to `main` branch from https://github.com/ahsan-babar/cotps-automata
 - Navigate to the folder and use the node package manager [npm](https://www.npmjs.com/) to install dependencies
 
 ```bash
@@ -16,27 +17,23 @@ Set your desired configurations in a `.env` and keep them at the root level of t
 Sample `.env` file's contents should look like this:
 
 ```bash
-#Browser Window Dimensions
-BROWSER_WIDTH=1920
-BROWSER_HEIGHT=1200
-
 #Browser Modes Toggles 1 to enable, 0 to disable
 BROWSER_EVIDENCES_ENABLED=0
+BROWSER_HEADLESS_MODE=0
 
-#Metamask new password before importing a wallet 
-METAMASK_NEW_PASSWORD=12345678
+#In ms
+DEFAULT_TIMEOUT= 5000
 
-#Metamask seed file path
-METAMASK_SEED_FILE_PATH=data/seed.txt
+#credentials
+COTPS_REGION=Pakistan +92
+COTPS_PHONE_NO=3249493082
+COTPS_PASSWORD=Bazinga2020!
 
-#Metamask Automata bot's output files directory
-METAMASK_BOT_OUTPUT_FILE_DIR=output
+# 0 to disable, 1 to enable interval mode
+INTERVAL_ENABLED=1
+#In minutes
+INTERVAL_TIME=130
 
-#Metamask Automata bot's wallet data output filename prefix
-METAMASK_BOT_OUTPUT_WALLETS_FILE_PREFIX=wallets
-
-#Toggle to enable/disable Wallet Data scraping. Set 1 to enable or 0 to disable 
-METAMASK_BOT_SCRAPE_WALLET_ENABLED=1
 ```
 
 ## Usage

@@ -1,7 +1,4 @@
 browser:
-  extensions:
-    - metamask.crx
-  profile:
   #Timeout in ms
   defaultTimeout: 5000
 
@@ -17,9 +14,12 @@ browser:
   #Toggles: 0 to disable, 1 to enable
   evidencesEnabled: 0
 
-metamask:
-  password: 12345678
-  seedFilePath: data/seed.txt
-  outputFileDir: output
-  walletsFilePrefix: wallets
-  scrapeWalletEnabled: 0
+cotps:
+  region: United States +1
+  phoneNo: 9123456789
+  password: defaultPassword
+
+interval:
+  enabled: 1
+  time: 133
+
