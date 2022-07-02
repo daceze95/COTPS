@@ -42,6 +42,7 @@ const main = async _ => {
         return false
 
     }
+}
 
     const login = async (browser, { routine = 'login', page = 'login', retry = routineRetries } = {}) => {
         try {
@@ -75,7 +76,7 @@ const main = async _ => {
             await browser.click(loginBtn)
             await browser.waitUntilUrlIs('https://www.cotps.com/#/pages/userCenter/userCenter')
             await browser.waitUntilPageIsLoaded()
-			
+        }
 			//This section of code collects referral earnings edited by darlington arinze
 			//Start
 			
